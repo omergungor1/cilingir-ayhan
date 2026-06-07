@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Gizlilik Politikası",
   description:
-    "Paşa Çilingir gizlilik politikası. Kişisel verilerinizin korunması hakkında bilgi edinin.",
+    "Gemlik Çilingir Ayhan gizlilik politikası. Kişisel verilerinizin korunması hakkında bilgi edinin.",
   robots: {
     index: true,
     follow: true,
@@ -13,14 +13,14 @@ export const metadata = {
 export default function GizlilikPolitikasiPage() {
   return (
     <article>
-      <section className="bg-[#0A2540] py-12 md:py-16">
+      <section className="bg-brand py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <nav className="mb-4 text-sm text-white/80" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#F5B301]">
+          <nav className="mb-4 text-sm text-text-on-dark/85" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-accent">
               Ana Sayfa
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-[#F5B301]">Gizlilik Politikası</span>
+            <span className="text-accent">Gizlilik Politikası</span>
           </nav>
           <h1 className="text-3xl font-bold text-white md:text-4xl">
             Gizlilik Politikası
@@ -30,9 +30,9 @@ export default function GizlilikPolitikasiPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
-          <div className="prose prose-lg max-w-none text-[#2E2E2E]">
+          <div className="prose prose-lg max-w-none text-text">
             <p className="lead">
-              Bu gizlilik politikası, Paşa Çilingir olarak kişisel verilerinizi
+              Bu gizlilik politikası, Gemlik Çilingir Ayhan olarak kişisel verilerinizi
               nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.
             </p>
 
@@ -68,7 +68,7 @@ export default function GizlilikPolitikasiPage() {
             <p>
               KVKK kapsamında veri erişimi, düzeltme, silme ve itiraz haklarınız
               bulunmaktadır. Detaylar için{" "}
-              <Link href="/kvkk" className="text-[#F5B301] hover:underline">
+              <Link href="/kvkk" className="text-accent hover:underline">
                 KVKK sayfamızı
               </Link>{" "}
               inceleyebilirsiniz.
@@ -77,7 +77,7 @@ export default function GizlilikPolitikasiPage() {
             <h2>6. İletişim</h2>
             <p>
               Gizlilik ile ilgili sorularınız için{" "}
-              <Link href="/iletisim" className="text-[#F5B301] hover:underline">
+              <Link href="/iletisim" className="text-accent hover:underline">
                 iletişim sayfamızdan
               </Link>{" "}
               bize ulaşabilirsiniz.

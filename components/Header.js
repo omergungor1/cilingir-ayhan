@@ -3,12 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SITE } from "@/lib/constants";
+
+const NAV_LINKS = [
+  { href: "/", label: "Ana Sayfa" },
+  { href: "/hakkimizda", label: "Hakkımızda" },
+  { href: "/gemlik-acil-cilingir", label: "Hizmetler" },
+  { href: "/blog", label: "Blog" },
+  { href: "/iletisim", label: "İletişim" },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0A2540] shadow-lg">
+    <header className="sticky top-0 z-40 bg-brand shadow-lg">
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
         aria-label="Ana menü"
@@ -16,62 +25,32 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="Paşa Çilingir - Logo"
+            alt={`${SITE.name} - Logo`}
             width={48}
             height={48}
             className="h-10 w-10 object-contain sm:h-12 sm:w-12"
           />
           <span className="text-lg font-bold text-white sm:text-xl">
-            Paşa Çilingir
+            {SITE.name}
           </span>
         </Link>
 
         <ul className="hidden items-center gap-4 text-sm font-medium md:flex">
-          <li>
-            <Link
-              href="/"
-              className="text-white/90 transition hover:text-[#F5B301]"
-            >
-              Ana Sayfa
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/hizmetler"
-              className="text-white/90 transition hover:text-[#F5B301]"
-            >
-              Hizmetler
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/hizmet-bolgelerimiz"
-              className="text-white/90 transition hover:text-[#F5B301]"
-            >
-              Bölgeler
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/blog"
-              className="text-white/90 transition hover:text-[#F5B301]"
-            >
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/iletisim"
-              className="text-white/90 transition hover:text-[#F5B301]"
-            >
-              İletişim
-            </Link>
-          </li>
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="text-text-on-dark/95 transition hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
           <li>
             <a
-              href="tel:+905413433490"
-              className="rounded-lg bg-[#F5B301] px-4 py-2 font-bold text-[#0A2540] transition hover:bg-[#e5a300]"
-              aria-label="Hemen ara: 0541 343 34 90"
+              href={`tel:${SITE.phone}`}
+              className="rounded-lg bg-accent px-4 py-2 font-bold text-white transition hover:bg-accent-hover"
+              aria-label={`Hemen ara: ${SITE.phoneDisplay}`}
             >
               Hemen Ara
             </a>
@@ -85,84 +64,34 @@ export default function Header() {
           aria-expanded={mobileMenuOpen}
           aria-label="Menüyü aç"
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
       </nav>
 
       {mobileMenuOpen && (
-        <div className="border-t border-white/20 bg-[#0A2540] px-4 py-4 md:hidden">
+        <div className="border-t border-white/20 bg-brand px-4 py-4 md:hidden">
           <ul className="flex flex-col gap-3">
-            <li>
-              <Link
-                href="/"
-                className="block rounded-lg px-4 py-2 text-white/90 hover:bg-white/10 hover:text-[#F5B301]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Ana Sayfa
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/hizmetler"
-                className="block rounded-lg px-4 py-2 text-white/90 hover:bg-white/10 hover:text-[#F5B301]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Hizmetler
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/hizmet-bolgelerimiz"
-                className="block rounded-lg px-4 py-2 text-white/90 hover:bg-white/10 hover:text-[#F5B301]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Bölgeler
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="block rounded-lg px-4 py-2 text-white/90 hover:bg-white/10 hover:text-[#F5B301]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/iletisim"
-                className="block rounded-lg px-4 py-2 text-white/90 hover:bg-white/10 hover:text-[#F5B301]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                İletişim
-              </Link>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-lg px-4 py-2 text-text-on-dark/95 hover:bg-white/10 hover:text-accent"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <a
-                href="tel:+905413433490"
-                className="block rounded-lg bg-[#F5B301] px-4 py-3 text-center font-bold text-[#0A2540]"
-                aria-label="Hemen ara: 0541 343 34 90"
+                href={`tel:${SITE.phone}`}
+                className="block rounded-lg bg-accent px-4 py-3 text-center font-bold text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Hemen Ara

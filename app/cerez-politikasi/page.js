@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Çerez Politikası",
   description:
-    "Paşa Çilingir çerez politikası. Web sitemizde kullanılan çerezler hakkında bilgi.",
+    "Gemlik Çilingir Ayhan çerez politikası. Web sitemizde kullanılan çerezler hakkında bilgi.",
   robots: {
     index: true,
     follow: true,
@@ -13,14 +13,14 @@ export const metadata = {
 export default function CerezPolitikasiPage() {
   return (
     <article>
-      <section className="bg-[#0A2540] py-12 md:py-16">
+      <section className="bg-brand py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <nav className="mb-4 text-sm text-white/80" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#F5B301]">
+          <nav className="mb-4 text-sm text-text-on-dark/85" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-accent">
               Ana Sayfa
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-[#F5B301]">Çerez Politikası</span>
+            <span className="text-accent">Çerez Politikası</span>
           </nav>
           <h1 className="text-3xl font-bold text-white md:text-4xl">
             Çerez Politikası
@@ -30,9 +30,9 @@ export default function CerezPolitikasiPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
-          <div className="prose prose-lg max-w-none text-[#2E2E2E]">
+          <div className="prose prose-lg max-w-none text-text">
             <p className="lead">
-              Bu çerez politikası, pasacilingir.com web sitesinde kullanılan
+              Bu çerez politikası, gemlikcilingirayhan.com web sitesinde kullanılan
               çerezler hakkında sizi bilgilendirmek amacıyla hazırlanmıştır.
             </p>
 
@@ -72,7 +72,7 @@ export default function CerezPolitikasiPage() {
             <h2>5. İletişim</h2>
             <p>
               Çerez politikası hakkında sorularınız için{" "}
-              <Link href="/iletisim" className="text-[#F5B301] hover:underline">
+              <Link href="/iletisim" className="text-accent hover:underline">
                 iletişim sayfamızdan
               </Link>{" "}
               bize ulaşabilirsiniz.

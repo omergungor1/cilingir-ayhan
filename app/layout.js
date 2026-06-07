@@ -8,54 +8,51 @@ import StickyCTA from "@/components/StickyCTA";
 export const metadata = {
   metadataBase: new URL(SITE.domain),
   title: {
-    default: "Paşa Çilingir | Bursa Mustafakemalpaşa & Karacabey 7/24 Çilingir",
-    template: "%s | Paşa Çilingir",
+    default: "Gemlik Çilingir Ayhan",
+    template: "%s | Gemlik Çilingir Ayhan",
   },
   description:
-    "Bursa Mustafakemalpaşa ve Karacabey'de 7/24 acil çilingir hizmeti. Ev, oto, kasa çilingir. Dakikalar içinde kapınızdayız. Hemen arayın: 0541 343 34 90",
+    "Gemlik'te 7/24 acil çilingir hizmeti. Ev, oto, kasa çilingir. Tüm mahallelere hızlı ulaşım. Hemen arayın: 0505 264 82 64",
   keywords: [
-    "mustafakemalpaşa çilingir",
-    "kemalpaşa çilingir",
-    "kemalpaşa nöbetçi çilingir",
-    "karacabey çilingir",
-    "karacabey nöbetçi çilingir",
-    "bursa çilingir",
-    "mustafakemalpaşa anahtarcı",
-    "karacabey anahtarcı",
-    "7/24 çilingir bursa",
-    "acil çilingir mustafakemalpaşa",
-    "acil çilingir karacabey",
+    "gemlik çilingir",
+    "gemlik anahtarcı",
+    "gemlik acil çilingir",
+    "gemlik 7/24 çilingir",
+    "gemlik oto çilingir",
+    "gemlik kasa çilingir",
+    "bursa gemlik çilingir",
+    "gemlik nöbetçi çilingir",
   ],
   openGraph: {
     type: "website",
     locale: "tr_TR",
     url: SITE.domain,
-    siteName: "Paşa Çilingir",
-    title: "Paşa Çilingir | Bursa Mustafakemalpaşa & Karacabey 7/24 Çilingir",
+    siteName: SITE.name,
+    title: "Gemlik Çilingir — 7/24 Acil Çilingir Hizmeti",
     description:
-      "Bursa Mustafakemalpaşa ve Karacabey'de 7/24 acil çilingir servisi. Ev, oto, kasa çilingir. Dakikalar içinde kapınızdayız.",
+      "Gemlik'te 7/24 acil çilingir servisi. Ev, oto, kasa çilingir. Dakikalar içinde kapınızdayız.",
     images: [
       {
-        url: "https://pasacilingir.com/logo.png",
+        url: "/logo.png",
         width: 512,
         height: 512,
-        alt: "Paşa Çilingir Logo",
+        alt: "Gemlik Çilingir Ayhan Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paşa Çilingir | Bursa Mustafakemalpaşa & Karacabey 7/24 Çilingir",
+    title: "Gemlik Çilingir — 7/24 Acil Çilingir Hizmeti",
     description:
-      "Bursa Mustafakemalpaşa ve Karacabey'de 7/24 acil çilingir hizmeti. Ev, oto, kasa çilingir.",
-    images: ["https://pasacilingir.com/logo.png"],
+      "Gemlik'te 7/24 acil çilingir hizmeti. Ev, oto, kasa çilingir.",
+    images: ["/logo.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: SITE.domain,
+  robots: { index: true, follow: true },
+  alternates: { canonical: SITE.domain },
+  other: {
+    "geo.region": SITE.geo.region,
+    "geo.placename": SITE.geo.placename,
+    "geo.position": `${SITE.geo.latitude};${SITE.geo.longitude}`,
   },
 };
 
@@ -69,11 +66,13 @@ const gtagScript = `
 `;
 
 export default function RootLayout({ children }) {
-  const jsonLd = getLocalBusinessSchema();
+  const jsonLd = getLocalBusinessSchema(SITE.domain);
 
   return (
     <html lang="tr">
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
@@ -84,7 +83,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-white text-[#2E2E2E] antialiased">
+      <body className="min-h-screen bg-white text-text antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

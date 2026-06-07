@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "KVKK Aydınlatma Metni",
   description:
-    "Paşa Çilingir KVKK aydınlatma metni. Kişisel verilerinizin işlenmesi hakkında bilgilendirme.",
+    "Gemlik Çilingir Ayhan KVKK aydınlatma metni. Kişisel verilerinizin işlenmesi hakkında bilgilendirme.",
   robots: {
     index: true,
     follow: true,
@@ -13,14 +13,14 @@ export const metadata = {
 export default function KvkkPage() {
   return (
     <article>
-      <section className="bg-[#0A2540] py-12 md:py-16">
+      <section className="bg-brand py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <nav className="mb-4 text-sm text-white/80" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#F5B301]">
+          <nav className="mb-4 text-sm text-text-on-dark/85" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-accent">
               Ana Sayfa
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-[#F5B301]">KVKK</span>
+            <span className="text-accent">KVKK</span>
           </nav>
           <h1 className="text-3xl font-bold text-white md:text-4xl">
             KVKK Aydınlatma Metni
@@ -30,7 +30,7 @@ export default function KvkkPage() {
 
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4">
-          <div className="prose prose-lg max-w-none text-[#2E2E2E]">
+          <div className="prose prose-lg max-w-none text-text">
             <p className="lead">
               6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında
               veri sorumlusu sıfatıyla kişisel verilerinizi işlemekteyiz.
@@ -38,7 +38,7 @@ export default function KvkkPage() {
 
             <h2>1. Veri Sorumlusu</h2>
             <p>
-              Paşa Çilingir olarak kişisel verilerinizin işlenmesinden sorumluyuz.
+              Gemlik Çilingir Ayhan olarak kişisel verilerinizin işlenmesinden sorumluyuz.
             </p>
 
             <h2>2. İşlenen Kişisel Veriler</h2>
@@ -82,7 +82,7 @@ export default function KvkkPage() {
             <h2>7. Başvuru</h2>
             <p>
               Haklarınızı kullanmak için{" "}
-              <Link href="/iletisim" className="text-[#F5B301] hover:underline">
+              <Link href="/iletisim" className="text-accent hover:underline">
                 iletişim sayfamızdan
               </Link>{" "}
               bize ulaşabilirsiniz.
